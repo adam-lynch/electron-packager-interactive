@@ -94,13 +94,13 @@ export default function interactive() {
       default: settings.version
     },
     {
-      type: "checkbox",
+      type: "list",
       name: "platform",
       message: "Select platforms:",
       choices: ["all", "linux", "darwin", "win32"]
     },
     {
-      type: "checkbox",
+      type: "list",
       name: "arch",
       message: "Select architecture:",
       choices: ["all", "ia32", "x64"]
@@ -110,8 +110,8 @@ export default function interactive() {
     const options = util._extend(settings, answers)
 
     // Fix two answers.
-    options.arch = answers.arch.join(",")
-    options.platform = answers.platform.join(",")
+    options.arch = answers.arch
+    options.platform = answers.platform
 
     // Add output folder to ignore
     options.ignore = answers.out
